@@ -68,3 +68,4 @@ function App() {
 * Make it look nice!
 * Voeg een React hook form toe aan de login pagina waar de gebruiker ook daadwerkelijk gegevens kan invullen. Je kunt dan een `users.json` bestand maken met gebruikers erin, zodat je iemand daadwerkelijk kunt laten "inloggen" met een bestaand account.
 
+"# privateblog" 
