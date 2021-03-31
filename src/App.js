@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import './App.css';
 import posts from './pages/data/posts.json';
 import Login from './pages/login/login.js';
+import Logout from "./pages/logout/logout";
 import BlogPostPage from './pages/blogpostpage/blogpostpage.js';
 import BlogPosts from './pages/blogposts/blogposts.js';
-import {Switch, Route, NavLink, } from 'react-router-dom';
+import {Switch, Route, Redirect, NavLink, } from 'react-router-dom';
 
 function App() {
   // We houden in de state bij of iemand is "ingelogd" (simpele versie)
@@ -12,48 +13,63 @@ function App() {
     console.log("blogpost datum" , posts);
 
   return (
-  <>
-        <ul>
+      <>
+         <ul id="balk">
           <li>
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <NavLink to="/login" activeClassName="activelink">Login</NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
-          <li>
-            <NavLink to="/blogpostpage" activeClassName="activelink">Blogpost Page</NavLink>
-          </li>
-          <li>
-            <NavLink to="/blogposts" activeClassName="activelink">Blogposts</NavLink>
-          </li>
+           {isAuthenticated === false &&
+           <li>
+             <NavLink to="/login" activeClassName="activelink">Login</NavLink>
+           </li>
+           } : {isAuthenticated === true &&
+         <li>
+           <NavLink to="/logout" activeClassName="activelink">Logout</NavLink>
+         </li>
+         }
+         {isAuthenticated === true &&
+           <li>
+             <NavLink to="/blogpostpage" activeClassName="activelink">Blogpost Page</NavLink>
+           </li>}
+           {isAuthenticated === true &&
+           <li>
+             <NavLink to="/blogposts" activeClassName="activelink">Blogposts</NavLink>
+           </li>
+           }
         </ul>
     <Switch>
-    <Route exact path="/">Home
+    <Route exact path="/">
       <section>
-        <h1>this is home page</h1>
-        <p>Tijd om onze applicatie te beveiligen! Zorg ervoor dat de menu-navigatie de juiste items
-         </p>
+        <h1>Welkom op de BLOG homepage</h1>
+        <p>Login voor toegang!</p>
+        <p>Deze inlog gebeurt fictief via de isAuthenticated op true te zetten in App.js.</p>
+        <p>Succes en veel leesplezier!</p>
       </section>
     </Route>
     <Route path="/login">
       <section>
         <h1>Loginpage</h1>
       </section>
-    <Login />
+        <Login />
     </Route>
-    <Route path="/blogpostpage">
-      <section>
-        <h1>Blogpostpage</h1>
-      </section>
-    <BlogPostPage />
+      <Route path="/logout">
+        <section>
+          <h1>Logoutpage</h1>
+        </section>
+        <Logout />
+      </Route>
+      <Route path="/blogpostpage/">
+        <section><h1>Blogpostpage</h1></section>
+        {isAuthenticated ? (<BlogPostPage />) : (<Redirect to="./"/>)}
     </Route>
     <Route path="/blogposts/">
-    <BlogPosts />
+      <section><h1>Blogpostpage</h1></section>
+      {isAuthenticated ? (<BlogPosts />)  : (<Redirect to="./"/>)}
     </Route>
     </Switch>
 
-  </>
 
+</>
 
 );
 }

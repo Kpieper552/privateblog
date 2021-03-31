@@ -41,7 +41,10 @@
     background-color: gray;
     color: floralwhite;
 }
-h1 {
+#balk {
+    background-color: #61dafb;
+}
+h1, p {
     margin-left: 35px;
 }
 #click {
@@ -54,7 +57,7 @@ h1 {
 }
 
 
-#posts {
+li {
     list-style: none;
     margin-bottom: 8px;
 }

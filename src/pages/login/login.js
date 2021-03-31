@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    Link,
     useHistory,
 } from 'react-router-dom';
 
@@ -12,14 +11,11 @@ function Login() {
     }
 
     return (
-        <section>
-         <button onClick={HandleClick} type="button" id="click">Login</button>
-        </section>
-
-
+        <>
+          <button onClick={HandleClick} type="button" id="click">Login</button>
+        </>
     );
 }
-
 
 export default Login;
 
