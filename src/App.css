@@ -28,6 +28,7 @@
   color: #61dafb;
 }
 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +36,34 @@
   to {
     transform: rotate(360deg);
   }
+}
+.activelink {
+    background-color: gray;
+    color: floralwhite;
+}
+#balk {
+    background-color: #61dafb;
+}
+h1, p {
+    margin-left: 35px;
+}
+#click {
+  margin-left: 35px;
+  width: 100px;
+  background-color: #61dafb;
+}
+#home {
+  background-color: #61dafb;
+}
+
+
+li {
+    list-style: none;
+    margin-bottom: 8px;
+}
+#blogclick {
+    background-color: #61dafb;
+    width: 100px;
+    margin-outside: 40px;
+
 }
