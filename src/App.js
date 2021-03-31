@@ -44,6 +44,8 @@ function App() {
         <p>Login voor toegang!</p>
         <p>Deze inlog gebeurt fictief via de isAuthenticated op true te zetten in App.js.</p>
         <p>Succes en veel leesplezier!</p>
+        <p>Wanneer je ingelogd bent, log je uit op de logout pagina met de knop logout.</p>
+        <p>Fictief in App.js naar false!</p>
       </section>
     </Route>
     <Route path="/login">
